@@ -10,24 +10,38 @@
         Back to customer list
     </a>
 </p>
-<div id="form">
-    <form action="#" th:action="@{/customers/update}" th:object="${customer}"
-          method="POST" novalidate="novalidate">
-        <input type="hidden" th:field="*{id}"/>
-        <div>
-            <label for="name">Name</label>
-            <input type="text" id="name" th:field="*{name}"/>
-        </div>
-        <div>
-            <label for="email">Email</label>
-            <input type="email" id="email" th:field="*{email}"/>
-        </div>
-        <div>
-            <label for="address">Address</label>
-            <input type="text" id="address" th:field="*{address}"/>
-        </div>
-        <input type="submit" value="Edit"/>
-    </form>
+
+<div class="container-fluid  text-dark py-3 my-5">
+    <header class="text-center">
+        <h1 class="display-6">Welcome to Edit page</h1>
+    </header>
+    <section class="container bg-light my-5 w-50 text-dark form py-3 px-3">
+        <form class="row g-3 my-3 bg-light" action="#" th:action="@{/customers/update}" th:object="${customer}"
+              method="POST" novalidate="novalidate">
+            <input type="hidden" th:field="*{id}"/>
+            <div class="col-md-4 text-center my-2">
+                <label for="name">Name</label>
+            </div>
+            <div class="col-md-8 my-2">
+                <input type="text" id="name" class="form-control" th:field="*{name}"/>
+            </div>
+            <div class="col-md-4 text-center my-2">
+                <label for="email">Email</label>
+            </div>
+            <div class="col-md-8 my-2">
+                <input type="email" id="email" class="form-control" th:field="*{email}"/>
+            </div>
+            <div class="col-md-4 text-center my-2">
+                <label for="address">Address</label>
+            </div>
+            <div class="col-md-8 my-2">
+                <input type="text" id="address" class="form-control" th:field="*{address}"/>
+            </div>
+            <div class="col-md-4 my-2">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </section>
 </div>
 <footer th:replace="/layout :: footer"></footer>
 </body>

@@ -15,29 +15,33 @@
         <span th:text="${success}"></span>
     </div>
 </div>
+<div class="container mt-5">
+    <table class="table table-responsive table-bordered border-dark table-hover    text-center">
+        <thead>
+        <tr class="table table-success table-active text-uppercase text-white table-bordered border-dark">
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>View</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="table table-white table-active text-white table-bordered border-dark"
+            th:each="row,rowStat : ${customers}">
+            <td th:text="${row.getName()}"></td>
+            <td th:text="${row.getEmail()}"></td>
+            <td th:text="${row.getAddress()}"></td>
+            <td><a th:href="@{/customers/{id}/edit(id=${row.getId()})}"><i class="fa-solid fa-user-pen"></i></a></td>
+            <td><a th:href="@{/customers/{id}/delete(id=${row.getId()})}"><i class="fa-solid fa-trash"></i></a></td>
 
-<table id="customers">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Address</th>
-        <th>Edit</th>
-        <th>Delete</th>
-        <th>View</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="row,rowStat : ${customers}">
-        <td th:text="${row.getName()}"></td>
-        <td th:text="${row.getEmail()}"></td>
-        <td th:text="${row.getAddress()}"></td>
-        <td><a th:href="@{/customers/{id}/edit(id=${row.getId()})}">edit</a></td>
-        <td><a th:href="@{/customers/{id}/delete(id=${row.getId()})}">delete</a></td>
-        <td><a th:href="@{/customers/{id}/view(id=${row.getId()})}">view</a></td>
-    </tr>
-    </tbody>
-</table>
+            <td><a th:href="@{/customers/{id}/view(id=${row.getId()})}"><i class="fa-solid fa-eye"></i></a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
 <footer th:replace="/layout :: footer"></footer>
 </body>
 
